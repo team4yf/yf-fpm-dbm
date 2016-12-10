@@ -1,7 +1,7 @@
-## yf-fast-dbm
+## yf-fpm-dbm
 > 快速极简的orm框架
 
-* 源码地址: [https://github.com/yfsoftcom/yf-fast-dbm](https://github.com/yfsoftcom/yf-fast-dbm)
+* 源码地址: [https://github.com/team4yf/yf-fpm-dbm.git](https://github.com/team4yf/yf-fpm-dbm.git)
 * 目前支持mysql
 * 通过delflag实现逻辑删除
 * 默认带有四个字段：id,createAt,updateAt,delflag
