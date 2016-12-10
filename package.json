@@ -1,0 +1,23 @@
+{
+  "name": "yf-fpm-dbm",
+  "version": "1.0.0",
+  "description": "fast sql generateor",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/*.test.js"
+  },
+  "keywords": [
+    "sql"
+  ],
+  "author": "wangfan@fpm",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2"
+  },
+  "dependencies": {
+    "lodash": "^4.15.0",
+    "mysql": "^2.11.1",
+    "q": "^1.4.1"
+  }
+}
