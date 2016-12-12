@@ -8,6 +8,13 @@
 * 支持批量插入
 * TODO:事务，存储过程，mongodb语法
 
+### 0.Changelog
+
+@12.12
+- 去除了 Q 模块
+- 将函数使用了回调方式
+- 添加了bluebird 的支持
+
 ### 1.Installation
 `
 $ npm install yf-fast-dbm
@@ -96,10 +103,12 @@ var arg = {
 　condition: "delflag=0",
 　fields: "id,article,ptags,product"
 };
-M.find(arg).then(function (data) {
-　// do success here
-}).catch(function (err) {
-　// do error here
+M.find(arg, function(error, data){
+  if(error){
+  　// do error here
+  }else{
+    // do success here
+  }
 });
 ```
 
@@ -112,10 +121,12 @@ var arg = {
 　condition: "delflag=0",
 　fields: "id,article,ptags,product"
 };
-M.first(arg).then(function (data) {
-　// do success here
-}).catch(function (err) {
-　// do error here
+M.first(arg, function(error, data){
+  if(error){
+  　// do error here
+  }else{
+    // do success here
+  }
 });
 //condition 字段接受各种格式
 //比如下面的格式同样支持
@@ -140,10 +151,12 @@ var arg = {
 　table: "test",
 　condition: "delflag=0"
 };
-M.count(arg).then(function (c) {
-　// do success here
-}).catch(function (err) {
-　// do error here
+M.count(arg, function(error, data){
+  if(error){
+  　// do error here
+  }else{
+    // do success here
+  }
 });
 ```
 
@@ -156,10 +169,12 @@ var arg = {
 　condition: "delflag=0",
 　fields: "id,article,ptags,product"
 };
-M.first(arg).then(function (data) {
-　// do success here
-}).catch(function (err) {
-　// do error here
+M.first(arg, function(error, data){
+  if(error){
+  　// do error here
+  }else{
+    // do success here
+  }
 });
 ```
 
@@ -171,10 +186,12 @@ var arg = {
 　table: "test",
 　id: 1
 };
-M.get(arg).then(function (data) {
-　// do success here
-}).catch(function (err) {
-　// do error here
+M.get(arg, function(error, data){
+  if(error){
+  　// do error here
+  }else{
+    // do success here
+  }
 });
 ```
 
@@ -188,10 +205,12 @@ var arg = {
 　condition: "key = 'test'",
     row:{val:"123"}
 };
-M.update(arg).then(function (data) {
-　// do success here
-}).catch(function (err) {
-　// do error here
+M.update(arg, function(error, data){
+  if(error){
+  　// do error here
+  }else{
+    // do success here
+  }
 });
 ```
 
@@ -203,10 +222,12 @@ var arg = {
 　table: "test",
 　id: 1
 };
-M.remove(arg).then(function (data) {
-　// do success here
-}).catch(function (err) {
-　// do error here
+M.remove(arg, function(error, data){
+  if(error){
+  　// do error here
+  }else{
+    // do success here
+  }
 });
 ```
 
@@ -218,10 +239,12 @@ var arg = {
 　table: "test",
 　condition: "delflag=0"
 };
-M.clear(arg).then(function (data) {
-　// do success here
-}).catch(function (err) {
-　// do error here
+M.clear(arg, function(error, data){
+  if(error){
+  　// do error here
+  }else{
+    // do success here
+  }
 });
 ```
 
@@ -233,10 +256,12 @@ var arg = {
 　table: "test",
 　row: {key:"test",val:"mmm"}
 };
-M.create(arg).then(function (data) {
-　// do success here
-}).catch(function (err) {
-　// do error here
+M.create(arg, function(error, data){
+  if(error){
+  　// do error here
+  }else{
+    // do success here
+  }
 });
 ```
 or  batch insert
@@ -247,9 +272,11 @@ var arg = {
 　table: "test",
 　row:[{key:"test",val:"mmm"},{key:"test2",val:"mmm2"}]
 };
-M.create(arg).then(function (data) {
-　// do success here
-}).catch(function (err) {
-　// do error here
+M.create(arg, function(error, data){
+  if(error){
+  　// do error here
+  }else{
+    // do success here
+  }
 });
 ```

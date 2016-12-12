@@ -1,3 +1,4 @@
+var Promise = require('bluebird');
 var expect = require('chai').expect;
 var C = {
     host:'localhost',
@@ -6,7 +7,8 @@ var C = {
     password:'741235896',
     showSql:true
 };
-var M = require('../index.js')(C);
+var M = Promise.promisifyAll(require('../index.js')(C));
+// var M = require('../index.js')(C);
 describe('Fast DB M', function() {
     //describe('#Count()', function () {
     //    it('count a table', function (done) {
@@ -26,7 +28,8 @@ describe('Fast DB M', function() {
                 condition: "delflag=0",
                 fields: "*"
             };
-            M.first(arg).then(function (data) {
+            M.firstAsync(arg).then(function (data) {
+              console.log(data);
                 done();
             }).catch(function (err) {
                 done(err);
@@ -42,7 +45,7 @@ describe('Fast DB M', function() {
                 ],
                 fields: "id,appid,appname,apptype"
             };
-            M.first(arg).then(function (data) {
+            M.firstAsync(arg).then(function (data) {
                 done();
             }).catch(function (err) {
                 done(err);
@@ -54,7 +57,7 @@ describe('Fast DB M', function() {
                 condition: "delflag=0",
                 fields: "*"
             };
-            M.findAndCount(arg).then(function (data) {
+            M.findAndCountAsync(arg).then(function (data) {
               console.log(data.rows[0].appkey);
                 done();
             }).catch(function (err) {
