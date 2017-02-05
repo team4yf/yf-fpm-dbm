@@ -10,10 +10,7 @@
 
 ### 0.Changelog
 
-@12.12
-- 去除了 Q 模块
-- 将函数使用了回调方式
-- 添加了bluebird 的支持
+点击查看 [Changelog](CHANGELOG.md)
 
 ### 1.Installation
 `
