@@ -6,7 +6,7 @@
 * 通过delflag实现逻辑删除
 * 默认带有四个字段：id,createAt,updateAt,delflag
 * 支持批量插入
-* TODO:事务，存储过程，mongodb语法
+* TODO:存储过程，mongodb语法
 
 ### 0.Changelog
 
@@ -275,5 +275,41 @@ M.create(arg, function(error, data){
   }else{
     // do success here
   }
+});
+```
+
+### 4. Support Transaction
+
+* Code List 13:
+```javascript
+// M 的初始化代码请参看 Code List:2
+M.transation(function(err, atom){
+  var arg = {
+  　table: "test",
+  　condition: "...",
+    row: { ... }
+  };
+  atom.update(arg, function(err, result1){
+    if(err){
+      atom.rollback();
+      return ;
+    }
+    arg = {
+    　table: "test",
+    　condition: "...",
+      row:{ ... }
+    };
+    atom.update(arg, function(err, result2){
+      if(err){
+        atom.rollback(function(){
+          //do rollback code
+        });
+      }else{
+        atom.commit(function(err){
+          // do commit code
+        });
+      }
+    });
+  });
 });
 ```

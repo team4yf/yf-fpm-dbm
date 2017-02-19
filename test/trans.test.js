@@ -40,6 +40,7 @@ describe('Fast DB M Callback Type Test', function() {
           })
         })
       })
+
     });
   });
 
