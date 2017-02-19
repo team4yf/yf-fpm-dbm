@@ -4,4 +4,5 @@ module.exports = {
     SQL_INJECTION:{errno:-906,code:'SQL_INJECTION',message:"you have sql keyword! ex:['drop ','delete ','truncate ',';','insert ','update ','set ','use ']"},
     UPDATE_ERROR:{errno:-5,code:'UPDATE_ERROR',message:'Nothing changed!'},
     OBJECT_ID_NOT_FIND:{errno:-4,code:'OBJECT_ID_NOT_FIND',message:'Object does not find by id or more rows'},
+    CONNECTION__IS_NULL: {errno:-921,code:'CONNECTION__IS_NULL',message:"connection is null!"},
 };
