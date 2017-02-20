@@ -14,7 +14,7 @@
 
 ### 1.Installation
 `
-$ npm install yf-fast-dbm
+$ npm install yf-fpm-dbm
 `
 ### 2.API List
 * adapter
