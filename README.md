@@ -6,6 +6,7 @@
 * 通过delflag实现逻辑删除
 * 默认带有四个字段：id,createAt,updateAt,delflag
 * 支持批量插入
+* 支持事务处理
 * TODO:存储过程，mongodb语法
 
 ### 0.Changelog
@@ -86,7 +87,7 @@ var C = {
     username:'root',
     password:'root',
 };
-var M = require('yf-fast-dbm')(C);
+var M = require('yf-fpm-dbm')(C);
 ```
 
 ### 4.Useage
