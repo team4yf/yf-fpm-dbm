@@ -1,9 +1,14 @@
+# 2.0.4 (2017-02-20)
+
+Feature
+
+- release the connection after commit / rollback
+
 # 2.0.3 (2017-02-19)
 
 Feature
 
 - support transaction
-
 
 
 # 2.0.2 (2017-02-05)
