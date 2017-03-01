@@ -1,47 +1,42 @@
+var Promise = require('bluebird');
 var expect = require('chai').expect;
+var parallel = Promise.promisify(require('async/parallel'));
 var C = {
   host:'localhost',
-  database:'yf-fast-platform',
+  database:'fpm',
   username:'dbadmin',
   password:'741235896',
-  showSql:true
+  showSql: true
 };
-var M = require('../index.js')(C);
-describe('Fast DB M Callback Type Test', function() {
-
-  describe('#FDM()', function () {
-    it('#Trans', function (done) {
-      M.transation(function(err, atom){
-        var arg = {
-        　table: "api_app",
-        　condition: "title = 'test'",
-          row:{val:"shit trans"}
-        };
-        atom.update(arg, function(err, result1){
-          if(err){
-            atom.rollback();
-            return ;
+var M = Promise.promisifyAll(require('../index.js')(C));
+describe('Fast DB M transation Test', function() {
+  it('#Trans', function (done) {
+    M.transationAsync()
+      .then(function(atom){
+        parallel([
+          function(callback){
+            atom.create({table: 'fpm_test', row: { val: '33333'}}, callback);
+          },
+          function(callback){
+            atom.update({table: 'fpm_test', condition: 'id = 4', row: { val: '33333'}}, callback);
           }
-          arg = {
-          　table: "test",
-          　condition: "id = 1",
-            row:{createAt: 1}
-          };
-          atom.update(arg, function(err, result2){
-            if(err){
-              atom.rollback(function(){
-                done()
-              });
-            }else{
-              atom.commit(function(err){
-                done(err)
-              });
-            }
+        ])
+          .then(function(data){
+            atom.commit(function(){
+              done()
+            });
           })
-        })
+          .catch(function(err){
+            atom.rollback(function(){
+              done(err)
+            });
+          });
       })
+      .catch(function(err){
+        done(err);
+      })
+      
 
-    });
   });
 
 });

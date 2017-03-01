@@ -1,6 +1,6 @@
 {
   "name": "yf-fpm-dbm",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "fast sql generateor",
   "main": "index.js",
   "scripts": {
@@ -12,6 +12,7 @@
   "author": "wangfan@fpm",
   "license": "MIT",
   "devDependencies": {
+    "async": "^2.1.5",
     "bluebird": "^3.4.6",
     "chai": "^3.5.0",
     "mocha": "^3.0.2"
