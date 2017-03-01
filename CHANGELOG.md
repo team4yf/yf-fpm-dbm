@@ -1,3 +1,17 @@
+# 2.0.5 (2017-03-01)
+
+Feature
+
+- support Object type Condition
+
+Code:
+
+- reCode the fastDBM.js srouce file
+
+Test:
+
+- add More Test Script File.
+
 # 2.0.4 (2017-02-20)
 
 Feature
