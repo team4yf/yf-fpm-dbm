@@ -1,3 +1,9 @@
+# 2.0.6 (2017-04-01)
+
+Feature
+
+- support execute `create/alter table` syntx
+
 # 2.0.5 (2017-03-01)
 
 Feature
