@@ -1,5 +1,5 @@
 var Promise = require('bluebird');
-var expect = require('chai').expect;
+var assert = require('assert');
 var C = {
     host:'localhost',
     database:'fpm',
@@ -27,25 +27,10 @@ describe('Fast DB M Command Tester', function() {
       M.commandAsync({sql: command})
         .then(function (data) {
           console.log(data);
-          // expect(data).to.equal(1);
           done()
         }).catch(function (err) {
           done(err);
         });
     });
   });
-
-  // describe('#Drop Table()', function () {
-  //   it('drop a table', function (done) {
-  //     M.clearAsync({
-  //       table: 'fpm_test',
-  //       condition: { val: 'aaa'}})
-  //       .then(function (data) {
-  //         expect(data.affectedRows).to.be.above(2);
-  //         done()
-  //       }).catch(function (err) {
-  //         done(err);
-  //       });
-  //   });
-  // });
 });

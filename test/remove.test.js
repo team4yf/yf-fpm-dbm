@@ -1,5 +1,5 @@
 var Promise = require('bluebird');
-var expect = require('chai').expect;
+var assert = require('assert');
 var C = {
     host:'localhost',
     database:'fpm',
@@ -16,9 +16,9 @@ describe('Fast DB M Remove Tester', function() {
     it('remove one from a table', function (done) {
       M.removeAsync({
         table: 'fpm_test',
-        id: 1})
+        id: 3})
         .then(function (data) {
-          expect(data.affectedRows).to.equal(1);
+          assert(data.affectedRows === 1);
           done()
         }).catch(function (err) {
           done(err);
@@ -32,7 +32,7 @@ describe('Fast DB M Remove Tester', function() {
         table: 'fpm_test',
         condition: { val: 'aaa'}})
         .then(function (data) {
-          expect(data.affectedRows).to.be.above(2);
+          assert(data.affectedRows >= 2);
           done()
         }).catch(function (err) {
           done(err);

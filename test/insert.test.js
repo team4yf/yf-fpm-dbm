@@ -1,5 +1,5 @@
 var Promise = require('bluebird');
-var expect = require('chai').expect;
+var assert = require('assert');
 var C = {
     host:'localhost',
     database:'fpm',
@@ -18,7 +18,7 @@ describe('Fast DB M Insert Tester', function() {
         table: 'fpm_test',
         row: { val: '33333'}})
         .then(function (data) {
-          expect(data.insertId).to.be.above(2);
+          assert(data.insertId >2);
           done()
         }).catch(function (err) {
           done(err);
@@ -32,7 +32,7 @@ describe('Fast DB M Insert Tester', function() {
         table: 'fpm_test',
         row: [{ val: 'aaa'}, { val: 'bbb'}]})
         .then(function (data) {
-          expect(data.insertId).to.be.above(2);
+          assert(data.insertId >2);
           done()
         }).catch(function (err) {
           done(err);

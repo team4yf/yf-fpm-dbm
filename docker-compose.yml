@@ -1,0 +1,23 @@
+version: '3'
+services:
+  phpmyadmin:
+    image: "phpmyadmin/phpmyadmin"
+    ports:
+      - "88:80"
+    depends_on:
+      - "db"
+    networks: 
+      - dev-network
+  db:
+    image: "mysql:5.6"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/db_init.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+    ports:
+      - "3306:3306"
+    networks: 
+      - dev-network
+
+networks:
+  dev-network: 

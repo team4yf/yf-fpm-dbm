@@ -1,5 +1,5 @@
 var Promise = require('bluebird');
-var expect = require('chai').expect;
+var assert = require('assert');
 var parallel = Promise.promisify(require('async/parallel'));
 var C = {
   host:'localhost',
@@ -18,7 +18,7 @@ describe('Fast DB M transation Test', function() {
             atom.create({table: 'fpm_test', row: { val: '33333'}}, callback);
           },
           function(callback){
-            atom.update({table: 'fpm_test', condition: 'id = 4', row: { val: '33333'}}, callback);
+            atom.update({table: 'fpm_test', condition: 'id = 3', row: { val: '33333'}}, callback);
           }
         ])
           .then(function(data){

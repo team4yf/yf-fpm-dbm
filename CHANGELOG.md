@@ -1,3 +1,13 @@
+# 2.0.8 (2017-09-2)
+
+Feature
+
+- logger.info(sql) -> logger.trace(sql)
+- add `debug(sql)` when the options.debug is true
+- remove `yarn.lock`
+- remove `;` from the injection keyword list
+- remove `chai` dep
+
 # 2.0.6 (2017-04-01)
 
 Feature
